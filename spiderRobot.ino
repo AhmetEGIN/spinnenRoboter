@@ -266,124 +266,6 @@ int calculateHeadingDegrees(){
   return headingDegrees;
 }
 
-void dance()
-{
-  center_servos();
-  delay(100);
-  lean_left();
-  delay(300);
-  lean_right();
-  delay(300);
-  lean_left();
-  delay(300);
-  lean_right();
-  delay(300);
-  lean_left();
-  delay(300);
-  lean_right();
-  delay(300);
-  lean_left();
-  delay(300);
-  lean_right();
-  delay(800);
-  center_servos();
-  delay(300);
-  bow();
-  center_servos();
-}
-
-//== Wave ==================================================================================
-
-void wave()
-{
-  /*
-  myServo1 - Front Left Pivot Servo
-  myServo2 - Front Left Lift Servo
-  myServo3 - Back Left Pivot Servo
-  myServo4 - Back Left Lift Servo
-  myServo5 - Back Right Pivot Servo
-  myServo6 - Back Right Lift Servo
-  myServo7 - Front Right Pivot Servo
-  myServo8 - Front Right Lift Servo
-  */
-
-  center_servos();
-  myServo4.write(45);
-  myServo6.write(45);
-  delay(200);
-  myServo8.write(0);
-  delay(200);
-  myServo7.write(180);
-  delay(200);
-  myServo7.write(30);
-  delay(300);
-  myServo7.write(180);
-  delay(300);
-  myServo7.write(30);
-  delay(300);
-  myServo7.write(s41);
-  delay(300);
-  myServo8.write(s42);
-  center_servos();
-
-}
-
-//== Bow ===================================================================================
-
-void bow()
-{
-  center_servos();
-  delay(200);
-  myServo2.write(15);
-  myServo8.write(15);
-  delay(700);
-  myServo2.write(90);
-  myServo8.write(90);
-  delay(700);
-}
-
-//== Lean_Left =============================================================================
-
-void lean_left()
-{
-  myServo2.write(15);
-  myServo4.write(15);
-  myServo6.write(150);
-  myServo8.write(150);
-}
-
-//== Lean_Right ============================================================================
-
-void lean_right()
-{
-  myServo2.write(150);
-  myServo4.write(150);
-  myServo6.write(15);
-  myServo8.write(15);
-}
-
-//== Lean_Left =============================================================================
-
-void trim_left()
-{
-  da--; // Left Front Pivot
-  db--; // Left Back Pivot
-  dc--; // Right Back Pivot
-  dd--; // Right Front Pivot
-}
-
-//== Lean_Right ============================================================================
-
-void trim_right()
-{
-  da++; // Left Front Pivot
-  db++; // Left Back Pivot
-  dc++; // Right Back Pivot
-  dd++; // Right Front Pivot
-}
-
-//== Forward ===============================================================================
-
 void forward()
 {
   // calculation of points
@@ -571,23 +453,7 @@ void center_servos()
   int s42 = 90; // Front Right Lift Servo
 }
 
-//== Increase Speed ========================================================================
 
-void increase_speed()
-{
-  if (spd > 3)
-    spd--;
-}
-
-//== Decrease Speed ========================================================================
-
-void decrease_speed()
-{
-  if (spd < 50)
-    spd++;
-}
-
-//== Srv ===================================================================================
 
 void srv( int  p11, int p21, int p31, int p41, int p12, int p22, int p32, int p42, int sp1, int sp2, int sp3, int sp4)
 {
